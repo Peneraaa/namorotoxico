@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Pedido Especial</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Oi Amor</h1>
+        <h2>Vai aceita namorar comigo?</h2>
+        <div class="button-container">
+            <button onclick="aceitou()" class="btn-sim">Sim</button>
+            <button onclick="nao()" id="naoBtn" class="btn-nao">Não</button>
+        </div>
+        <p id="resposta" class="mensagem"></p>
+    </div>
+
+    <script>
+        function aceitou() {
+            document.getElementById("resposta").textContent = "Ótimo, vamos marcar nosso casório agora!";
+        }
+
+        function nao() {
+            const btn = document.getElementById("naoBtn");
+            const container = document.querySelector(".container");
+
+            const maxX = container.offsetWidth - btn.offsetWidth;
+            const maxY = container.offsetHeight - btn.offsetHeight;
+
+            const randomX = Math.random() * maxX;
+            const randomY = Math.random() * maxY;
+
+            btn.style.position = "absolute";
+            btn.style.left = `${randomX}px`;
+            btn.style.top = `${randomY}px`;
+        }
+    </script>
+</body>
+</html>
